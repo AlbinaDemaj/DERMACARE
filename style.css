@@ -976,3 +976,91 @@ footer {
     margin: 20px 0;
   }
 }
+
+
+/* === HAMBURGER MENU STYLES === */
+.nav-toggle {
+  display: none;
+}
+
+.responsive-nav {
+  background-color: #ffffff;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.responsive-nav ul {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.responsive-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.nav-toggle-label {
+  display: none;
+}
+
+/* === HIDDEN MENU FOR TABLET & MOBILE === */
+@media (max-width: 768px) {
+  .responsive-nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    background-color: #fff;
+    top: 60px;
+    left: 0;
+    right: 0;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    z-index: 10;
+  }
+
+  .nav-toggle:checked + .responsive-nav ul {
+    display: flex;
+  }
+
+  .nav-toggle-label {
+    display: block;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 20;
+  }
+
+  .nav-toggle-label span,
+  .nav-toggle-label span::before,
+  .nav-toggle-label span::after {
+    display: block;
+    background: #333;
+    height: 3px;
+    width: 100%;
+    border-radius: 2px;
+    position: absolute;
+    transition: all 0.3s ease;
+  }
+
+  .nav-toggle-label span::before {
+    content: '';
+    top: -8px;
+  }
+
+  .nav-toggle-label span::after {
+    content: '';
+    top: 8px;
+  }
+}
